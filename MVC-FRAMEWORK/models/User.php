@@ -48,4 +48,10 @@ class User extends Orm {
         $stmt = $this->db->prepare("UPDATE users SET email = ? WHERE id = ?");
         return $stmt->execute([$data['email'], $id]);
     }
+
+    public function getUserByUsername($username) {
+        $stmt = $this->db->prepare("SELECT * FROM users WHERE username = :username");
+        $stmt->execute(['username' => $username]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 }

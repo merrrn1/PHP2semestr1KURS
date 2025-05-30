@@ -6,6 +6,11 @@
     <li>
         <strong><?= htmlspecialchars($article['title']) ?></strong><br>
         <?= nl2br(htmlspecialchars($article['content'])) ?><br>
+
+        <!-- ССЫЛКА НА ПРОСМОТР СТАТЬИ -->
+        <a href="<?= $baseUrl ?>/articles/show/<?= $article['id'] ?>">Читать</a> |
+        
+        <a href="<?= $baseUrl ?>/articles/edit/<?= $article['id'] ?>">Редактировать</a> |
         <a href="<?= $baseUrl ?>/articles/delete/<?= $article['id'] ?>">Удалить</a>
     </li>
 <?php endforeach; ?>
